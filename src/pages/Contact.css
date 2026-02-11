@@ -1,0 +1,185 @@
+/* src/pages/Contact.css */
+
+.contactSection{
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #06110b;
+}
+
+
+.contactBgMedia{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  filter: blur(10px) brightness(0.78) contrast(1.05);
+  transform: scale(1.08);
+}
+
+.contactVignette{
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(80% 70% at 35% 35%, rgba(0,0,0,0.0), rgba(0,0,0,0.55)),
+    linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
+}
+
+/* ✅ content: flex로 */
+.contactInner{
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+ padding: 0 20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* 상단 메인 영역(좌:큰타입 / 우:정보) */
+.contactTop{
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  column-gap: clamp(24px, 4vw, 72px);
+  align-items: center;
+  margin: auto 0;
+}
+
+.contactTop .contactLeft{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  justify-self: center;
+  text-align: left;
+}
+    
+.contactBig{
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+  color: rgba(255,255,255,0.95);
+  font-size: clamp(64px, 6.2vw, 120px);
+}
+
+/* RIGHT */
+.contactRight{
+  max-width: 420px;
+  justify-self: center;
+  text-align: center;
+}
+
+
+.contactTag{
+  display: flex;
+  justify-content: center;   /* 👈 가운데 */
+  align-items: center;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.contactInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+  text-align: center;
+}
+
+
+.contactRow{
+  display: inline-flex;
+  gap: 16px;
+  align-items: baseline;
+}
+
+.contactLabel{
+  width: 70px; /* grid-column 대체 */
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+}
+
+.contactValue{
+  font-size: 22px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.95);
+  text-decoration: none;
+}
+
+/* ✅ 하단 바(좌/중/우) */
+.contactBottom{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 👈 1:1:1 */
+
+  align-items: center;
+  padding-bottom: 40px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.7);
+  margin-top: auto;
+}
+
+
+.contactBottomLeft{
+  justify-self: start;
+}
+
+.contactBottomCenter{
+  justify-self: center;
+}
+
+.contactBottomRight{
+  justify-self: end;
+}
+
+.contactToTop{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.9);
+  cursor: pointer;
+}
+
+.contactToTop:hover{
+  background: rgba(255,255,255,0.14);
+}
+
+/* ✅ 모바일 */
+@media (max-width: 920px){
+  .contactTop{
+    grid-template-columns: 1fr; 
+    row-gap: clamp(16px, 10vw, 90px);
+    column-gap: 0;
+  }
+  .contactTop .contactLeft{
+    justify-self: start;
+    width: 100%;
+  }
+
+  .contactRight{
+    justify-self: start;
+    max-width: 100%;
+  }
+
+  .contactBottom{
+    gap: 14px;
+  }
+
+  .contactTag{
+    justify-content: flex-start; /* 👈 왼쪽 */
+  }
+
+  .contactLabel{
+    text-align: initial;
+  }
+}

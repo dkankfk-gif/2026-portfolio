@@ -1,0 +1,127 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 3000;
+  padding: 40px 0px;
+
+  /* 기본은 최대한 흰색 */
+  color: #fff;
+
+  /* 겹친 부분만 반전 */
+  mix-blend-mode: difference;
+
+  /* 대비 보정 (핵심) */
+  filter: brightness(1.4) contrast(1.15);
+
+  pointer-events: none;
+  background: transparent;
+}
+
+header .inner{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  pointer-events: auto;
+}
+
+.logo,
+.headerNav button,
+.date{
+  -webkit-text-stroke: 0.6px rgba(255,255,255,0.5);
+  text-shadow:
+    0 0 1px rgba(0,0,0,0.6),
+    0 0 8px rgba(0,0,0,0.35);
+}
+
+/* ---------------------------
+   LEFT : Logo
+--------------------------- */
+.logo {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  color: currentColor;
+  text-decoration: none;
+}
+
+.logo svg,
+.logo svg * {
+  fill: #fff;
+}
+
+.logo svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
+/* ---------------------------
+   CENTER : Section Indicator
+--------------------------- */
+.headerNav {
+  justify-self: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 6px;
+
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  user-select: none;
+}
+
+.headerNav button {
+  all: unset;
+  cursor: pointer;
+
+  position: relative;
+  padding-left: 12px;
+
+  opacity: 0.35;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+
+  color: currentColor;
+}
+
+.headerNav button:hover {
+  opacity: 0.75;
+  transform: translateY(-1px);
+}
+
+.headerNav button.active {
+  opacity: 1;
+}
+
+.headerNav button.active::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.headerNav button:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------------------------
+   RIGHT : Date
+--------------------------- */
+.date {
+  justify-self: end;
+
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1;
+
+  opacity: 0.9;
+}

@@ -1,0 +1,461 @@
+.workSection{
+  position: relative;
+  background: #06110b;
+  overflow: hidden;
+  margin-bottom: clamp(
+    80px,
+    calc(
+      80px + (220 - 80) * ((100vw - 390px) / (1920 - 390))
+    ),
+    220px
+  );
+}
+
+.workPin{
+  position: relative;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.workInner{
+  width: 100%;
+  margin: 0 auto;
+  padding: 90px 20px 70px;
+  position: relative;
+}
+.workTitle{
+  margin: 0 0 36px;
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: rgba(255,255,255,0.95);
+}
+
+.workGrid{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(80px, 10vw, 200px);
+  margin-top: 24px;
+  width: 100%;
+}
+
+.workCard{
+  flex: 1 1 0;
+  width: 100%;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+  display: grid;
+  gap: 14px;
+}
+
+/* ✅ 미디어/이미지는 이미 100% 꽉 차는 구조 유지 */
+.workCardMedia{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: rgba(0,0,0,0.35);
+}
+
+.workImg{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 380ms ease cubic-bezier(.2,.8,.2,1);
+  will-change: transform;
+}
+
+/* Hover frame */
+.workHoverFrame{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  overflow: hidden;
+  clip-path: inset(0 0 100% 0);
+  transform: scale(1.06);
+  transition:
+    opacity 220ms ease,
+    transform 520ms cubic-bezier(.2,.8,.2,1),
+    clip-path 520ms cubic-bezier(.2,.8,.2,1);
+  z-index: 2;
+}
+
+.workImgInner{
+  inset: 12%;
+  width: 76%;
+  height: 76%;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+  transform: scale(0.95);
+  transition:
+    transform 420ms cubic-bezier(.2,.8,.2,1),
+    filter 420ms ease;
+  will-change: transform, filter;
+}
+
+.workCard:hover .workImgInner{
+  transform: scale(0.7);
+  filter: brightness(1) contrast(1);
+}
+
+.workCard:hover .workImg:not(.workImgInner){
+  transform: scale(1);
+  filter: brightness(0.6) contrast(1.02);
+}
+
+.workCard:hover .workHoverFrame{
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+}
+
+.workMeta{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+}
+
+.workMetaLeft{ opacity: 0.9; }
+.workMetaRight{ opacity: 0.7; }
+
+.workDesc{
+  margin: 40px 0 18px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.72);
+}
+
+.workCta{
+  display: block;
+  margin: 0 auto;
+  padding: 8px 16px;
+  border: 1px solid rgba(255,255,255,0.75);
+  background: transparent;
+  color: rgba(255,255,255,0.92);
+  font-size: 14px;
+  font-weight: 900;
+  font-family: "Koulen";
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.workCta:hover{
+  color: #040F09;
+  background: #fff;
+}
+
+.workProgress{
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.6);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.workProgressBar{
+  width: 140px;
+  height: 2px;
+  background: rgba(255,255,255,0.18);
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+.workProgressBar i{
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: rgba(255,255,255,0.72);
+  transform-origin: 0 50%;
+}
+
+/* 🟩 CHANGED: 모바일에서 레퍼런스처럼 위/아래로 스택 + 인디케이터 잘림 방지 */
+@media (max-width: 680px){
+  .workInner{
+    width: 100%;              /* 🟩 CHANGED */
+    padding: 70px 20px 60px;
+  }
+
+  .workTitle{ font-size: 36px; }
+
+  .workGrid{
+    flex-direction: column;   /* 🟩 CHANGED */
+    gap: 26px;                /* 🟩 CHANGED */
+  }
+
+  .workCard{
+    flex: 1 1 auto;           /* 🟩 CHANGED */
+    width: 100%;              /* 🟩 CHANGED */
+  }
+
+  .workProgress{
+    position: relative;      /* static보다 relative가 안전 */
+    left: auto;
+    right: auto;
+    bottom: auto;
+    transform: none;
+    width: 100%;             /* ✅ 부모 폭 기준 */
+    display: flex;           /* ✅ 가운데 정렬 */
+    justify-content: center;
+    align-items: center;
+    margin: 18px auto 0;
+    text-align: center;
+  }
+
+  .workPin{
+    height: auto !important;
+    min-height: 100vh;
+    display: block;
+  }
+
+  .workCardMedia{
+    aspect-ratio: 16 / 6;
+  }
+}
+
+
+/* ===== Process Section (UPDATED) ===== */
+
+.processSection{
+  position: relative;
+  background: #06110b;
+  padding-block: clamp(
+    40px,
+    calc(
+      40px + (110 - 40) * ((100vw - 390px) / (1920 - 390))
+    ),
+    110px
+  );
+  overflow: hidden;
+}
+
+.processInner{
+  margin: 0 20px 140px;
+}
+
+.processTopLine{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: clamp(
+    40px,
+    calc(40px + (220 - 40) * ((100vw - 390px) / (1920 - 390))),
+    220px
+  );
+}
+
+.processLine{
+  height: 1px;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #040F09 0%,
+    rgb(231, 229, 223) 100%
+  );
+}
+
+/* ✅ 오른쪽 라인 : 완전 반대 */
+.processLine:last-child{
+  background: linear-gradient(
+    90deg,
+    rgb(231, 229, 223) 0%,
+    #040F09 100%
+  );
+}
+
+.processTopLabel{
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.7);
+}
+
+.processGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 5vw, 90px);
+  align-items: start;
+}
+
+/* LEFT */
+.processLeftCard{
+  max-width: 520px;
+}
+
+.processLeftThumb{
+  width: 520px;
+  height: 240px;
+  background: url(/img/process.gif) no-repeat center;
+  background-size: cover;
+  opacity: 0.85;
+
+}
+
+.processLeftTitle{
+  margin: 40px 0 12px;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 800;
+  color: rgba(255,255,255,0.95);
+  white-space: pre-line;
+}
+
+.processLeftDesc{
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.65);
+  white-space: pre-line;
+}
+
+/* RIGHT */
+.processRight{
+  position: relative;
+  padding-left: 8px;
+}
+
+.processMini{
+  text-align: left;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: rgb(204, 187, 135);
+  margin: 0 0 14px;
+}
+
+.processList{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid rgb(231, 229, 223);
+}
+
+.processRow{
+  border-bottom: 1px solid rgb(231, 229, 223);
+}
+
+/* 버튼 */
+.processItemBtn{
+  width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 18px 0;
+  cursor: pointer;
+  text-align: left;
+
+  color: #fff;
+
+  transition: color 180ms ease;
+}
+
+.processItemText{
+  display: block;
+  font-size: clamp(26px, 3.2vw, 40px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+/* ✅ "호버/포커스/active"만 밝게 */
+.processItemBtn:hover,
+.processItemBtn:focus-visible,
+.processItemBtn.is-active{
+  color: #fff;   /* 🔥 포인트 컬러 — 원하는 색으로 교체 */
+}
+
+/* ✅ 리스트 전체 hover 중, 선택 안된 애들은 더 흐리게(원치 않으면 삭제) */
+.processList:hover .processItemBtn:not(.is-active){
+  opacity: 0.6;
+}
+
+.processBottomMini{
+  margin-top: 16px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,1);
+}
+
+.processPreview{
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(14px);
+  transition: opacity 180ms ease, filter 260ms ease;
+  will-change: transform, opacity, filter;
+  z-index: 20;
+}
+
+/* 보여줄 때 */
+.processPreview.is-show{
+  opacity: 1;
+  filter: blur(0px);
+}
+
+/* ✅ 마우스 위치로 온 translate 기준에서 "살짝 옆/위"로 오프셋 */
+.processPreviewBox{
+  width: 200px;
+  aspect-ratio: 16 / 9;
+  background: rgba(255,255,255,0.88);
+  overflow: hidden;
+  transform: translate(22px, -120px);
+}
+
+.processPreviewImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+}
+
+/* 반응형 */
+@media (max-width: 980px){
+  .processGrid{
+    grid-template-columns: 1fr;
+  }
+  .processLeftThumb{
+    width: min(520px, 92vw);
+  }
+}
+/* 반응형 */
+@media (max-width: 980px){
+  .processGrid{
+    grid-template-columns: 1fr;
+  }
+  .processLeftThumb{
+    width: min(520px, 92vw);
+  }
+  .processPreview{
+    right: 0;
+  }
+}
+
+
+@media (max-width: 520px){
+
+  .processLeftCard{
+    width: 100%;
+    max-width: none;
+  }
+
+  .processLeftThumb{
+    width: 100% !important;
+    max-width: none;
+  }
+
+}

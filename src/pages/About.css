@@ -1,0 +1,274 @@
+/* src/pages/About.css */
+
+.aboutSection {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #06110b;
+}
+
+.aboutInner {
+  height: 100%;
+  width: min(1560px, 92vw);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.aboutLeft {
+  color: rgba(255, 255, 255, 0.92);
+  justify-self: start;
+}
+
+/* ✅ 통째로 블러/등장되는 래퍼 */
+.aboutTextWrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 560px;
+}
+
+.aboutText {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 300;
+  opacity: 0.92;
+  white-space: normal;
+}
+
+.aboutLabel {
+  margin-top: 42px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0.95;
+  align-self: flex-end;
+}
+
+/* 기존 aboutLabel 대신 버튼 스타일 */
+
+.aboutLabelBtn{
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin-top: 42px;
+
+  cursor: pointer;
+  color: rgba(255,255,255,0.95);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  align-self: flex-end;
+  text-align: right;
+}
+
+.aboutLabelBtn span{
+  display: inline-block;
+  min-width: 60px; /* 글자 흔들릴 때 폭 덜 흔들리게 */
+}
+
+.aboutLabelBtn:hover{
+  opacity: 1;
+}
+
+.aboutLabelBtn:focus-visible{
+  outline: none;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+
+/* ✅ 오른쪽 영역 */
+.aboutRight {
+  position: relative;
+  height: 100%;
+}
+
+/* ✅ “최종(커진 상태)” 기준 프레임 */
+.aboutImgStage {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* ✅ TO 값이랑 맞춰주세요 */
+  width: 600px;
+  height: 700px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  pointer-events: none;
+}
+
+.aboutImg {
+  display: block;
+  width: 430px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 2px;
+  user-select: none;
+}
+
+/* ===== Skills Section ===== */
+.skillsSection{
+  position: relative;
+  background: #06110b;
+  min-height: 100vh;
+  padding: 140px 0 160px;
+  overflow: hidden;
+}
+
+.skillsInner{
+  width: min(1560px, 92vw);
+  margin: 0 auto;
+}
+
+.skillsHead{
+  text-align: center;
+  margin-bottom: 90px;
+}
+
+.skillsTitle{
+  margin: 0;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: rgba(255,255,255,0.95);
+  font-family: "Barlow Condensed";
+  font-weight: 600;
+}
+
+.skillsTitleLine1,
+.skillsTitleLine2{
+  display: block;
+  font-size: clamp(40px, 6.6vw, 110px);
+}
+
+.skillsSub{
+  margin: 30px 0 0;
+  font-family: "Barlow Condensed";
+  font-weight: 500;
+  font-size: clamp(28px, 2.2vw, 34px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+
+/* 2열처럼 보이게 */
+.skillsGrid{
+  display: grid;
+  gap: 34px;
+  width: min(760px, 92vw);
+  margin: 0 auto;
+}
+
+.skillRow{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  column-gap: 26px;
+}
+
+.skillCat{
+  font-size: 12px;
+  color: rgba(255,255,255,1);
+  padding-top: 8px;
+  white-space: nowrap;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.skillList{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 18px;
+}
+
+.skillItem{
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(255,255,255,1);
+}
+
+/* ✅ 타이틀 스플리팅용 */
+.char{
+  display: inline-block;     /* y 이동 필수 */
+  transform: translateZ(0);  /* 렌더 안정 */
+}
+
+/* ✅ 1100px 이하: 2열 → 1열, 이미지(우) 위 / 텍스트(좌) 아래 */
+@media (max-width: 1100px) {
+  .aboutSection{
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+    padding: 90px 0 60px;
+  }
+
+  .aboutInner{
+    height: auto;
+    display: flex;              /* grid 강제 해제 */
+    flex-direction: column;     /* 세로 배치 */
+    gap: 32px;
+  }
+
+  /* ✅ 순서: 이미지 위 / 글 아래 */
+  .aboutRight{
+    order: 1; 
+    width: 100%; 
+    height: auto; 
+  }
+
+  .aboutLeft {
+    order: 2; 
+    width: fit-content;
+    max-width: 92vw;   /* 화면 넘침 방지 */
+    margin: 0 auto;
+  }
+
+  /* ✅ absolute로 중앙정렬하던 구조를 모바일/좁은 화면에서는 자연스러운 흐름으로 */
+  .aboutImgStage {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+
+    width: 100%;          /* 화면 폭에 맞춤 */
+    height: auto;         /* 고정 높이 해제 */
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  /* ✅ 이미지 크기: 너무 크면 줄이고, GSAP width/height 애니메이션이 있으면 이 값이 최종 안전장치 역할 */
+  .aboutImg{
+    width: min(520px, 92vw);
+    height: auto;
+    max-height: 52vh;    /* ✅ 세로 줄이기(45~60vh 사이로 취향 조절) */
+    object-fit: cover;
+  }
+
+  /* ✅ 텍스트 정렬도 중앙/좌측 등 취향대로 */
+  .aboutTextWrap{
+    width: fit-content;
+    max-width: 92vw;
+    margin: 0 auto;
+  }
+
+  .aboutLabelBtn {
+    align-self: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 440px) {
+  br{
+    display: none;
+  }
+}

@@ -1,0 +1,194 @@
+/* ✅ Home은 스크롤 길이만 담당 */
+.home{
+  position: relative;
+  height: clamp(
+    230vh,
+    calc(230vh + 0.0653594771 * (100vw - 390px)),
+    330vh
+  );
+}
+
+/* ✅ 화면에 보이는 모든 것(영상+텍스트+푸터)을 100vh로 고정 */
+.homeSticky{
+  position: sticky;
+  top: 0;
+  height: 100%;
+  overflow: hidden;  /* 밖으로 새는거 방지 */
+}
+
+/* ✅ 영상은 배경으로 깔기 */
+.videoWrap{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.videoContainer{
+  position: absolute;
+  inset: 0;
+}
+
+.videoEl{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ✅ 그라데이션 */
+.videoContainer::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.6),
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.6)
+  );
+  pointer-events:none;
+}
+
+/* ✅ 텍스트는 영상 위 */
+.overlay{
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+
+
+.typoWrap span{
+  font-family: "Koulen";
+}
+.typoWrap{
+  font-size: clamp(120px, 30vw, 600px);
+
+  padding-left: clamp(
+    20px,
+    calc(20px + 0.01960784314 * (100vw - 390px)),
+    50px
+  );
+
+  padding-right: clamp(
+    20px,
+    calc(20px + 0.01960784314 * (100vw - 390px)),
+    50px
+  );
+
+  padding-top: clamp(
+    170px,
+    calc(170px + 0.3333333333 * (1920px - 100vw)),
+    430px
+  );
+}
+
+
+.typoWrap .typeGrid{
+  display: flex;
+  justify-content: space-between;
+}
+.tile-w{
+  transform: rotate(180deg) translateY(calc(38px - (1920px - 100vw) * 31 / 1530));
+}
+
+.heroCopy{
+  display: flex;
+  flex-direction: column;
+
+}
+.copyLeft{
+  width: 100%;
+  line-height: 1;
+  margin-left: clamp(20px, 5vw, 100px);
+  font-size: clamp(24px, 5vw, 96px);
+}
+
+.copyLeft .kicker{
+  font-family: "Koulen";
+}
+
+.copyLeft .headline{
+  font-family: "FONTSPRING DEMO";
+}
+
+
+.copyRightKo{
+  font-size: clamp(12px, 5vw, 20px);
+  align-self: flex-end;
+  padding-top: clamp(
+  100px,
+  calc(100px + 400 * (100vw - 390px) / 1530),
+  500px
+  );
+
+  padding-right: clamp(
+  60px,
+  calc(60px + 240 * (100vw - 390px) / 1530),
+  300px
+);
+}
+
+.copyBottom{
+  font-size: 16px;
+
+  padding-top: clamp(
+    75px,
+    calc(75px + 295 * (100vw - 390px) / 1530),
+    370px
+  );
+
+  padding-left: clamp(
+    120px,
+    calc(120px + 480 * (100vw - 390px) / 1530),
+    520px
+  );
+}
+
+.copyBottom .smallTitle{
+  margin-bottom: 16px;
+}
+
+/* ✅ footer: 중앙(footCenter) 고정 + 오른쪽 박스 동결 */
+.heroFooter{
+  margin-top: auto;
+
+  /* 기존 flex → grid로 변경 */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: flex-end;
+
+  padding: 0 20px 30px;
+  font-size: 14px;
+  font-family: "Barlow Condensed";
+  font-weight: 600;
+}
+
+/* 좌/중/우 위치 고정 */
+.footLeft{ justify-self: start; }
+.footCenter{ justify-self: center; }
+.footRight{ justify-self: end; }
+
+/* ✅ footRight 박스 “크기 동결”: 글 바뀌어도 푸터 레이아웃 안 흔들림 */
+.footRight{
+  width: 280px;       /* 필요하면 240~340 사이로 조절 */
+  min-height: 34px;   /* 2줄 높이 고정 */
+  text-align: right;
+  line-height: 1.1;
+}
+
+/* ✅ 두 줄이 한 줄로 줄바꿈 안 되게 */
+.footRight .footTop,
+.footRight .footBottom{
+  white-space: nowrap;
+}
+
+
+@media (min-width: 1920px){
+  .home{ height: 330vh; }
+}

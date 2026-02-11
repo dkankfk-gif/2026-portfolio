@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.kr{
+  font-family: 'Pretendard', sans-serif;
+}
+a { text-decoration: none; color: inherit; }
+.inner{
+  width: 98%;
+  margin: 0 auto;
+}
+
+/* ✅ 스크롤을 무조건 살려두는 전역 */
+html, body {
+  width: 100%;
+  height: auto !important;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+}
+
+html, body { margin: 0; }
+section { min-height: 100vh; }
+/* 스크롤은 유지, 바만 숨김 */
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+body {
+  background: #040F09;
+  -ms-overflow-style: none; /* IE */
+}
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+
+  background-image: url("/Grain.webp");
+  background-repeat: repeat;
+  background-size: 220px 220px;
+
+  opacity: 0.07;
+  /* ✅ 휠 꼬이면 여기부터 normal로 */
+  mix-blend-mode: normal;
+
+  will-change: background-position;
+  animation: grainMove 0.9s steps(2) infinite;
+}
+
+@keyframes grainMove{
+  0%   { background-position: 0px 0px; }
+  25%  { background-position: -12px 6px; }
+  50%  { background-position: 10px -10px; }
+  75%  { background-position: -6px -6px; }
+  100% { background-position: 0px 0px; }
+}
+
+
+/* ✅ root도 고정 높이 금지 */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  height: auto !important;
+  overflow: visible !important;
+}
