@@ -2,6 +2,7 @@ import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import "./Work.css";
+import HoverPreview from "../components/HoverPreview";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -385,9 +386,11 @@ export default function Work() {
         스크롤에 따라 주요 작업이 순서대로 전환됩니다.
       </p>
 
-      <button className="workCta" type="button">
-        VIEW ALL WORK
-      </button>
+<HoverPreview imgSrc="/img/soon.avif" className="workCtaWrap">
+  <button className="workCta" type="button">
+    VIEW ALL WORK
+  </button>
+</HoverPreview>
 
       {/* ✅ CHANGED: 모바일도 1920처럼 01~06 표시 */}
       <div className="workProgress" aria-hidden="true">

@@ -63,14 +63,12 @@ header .inner{
 --------------------------- */
 .headerNav {
   justify-self: center;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
   gap: 6px;
-
-  font-size: 11px;
+  font-size: 12px;
+  font-family: "Barlow Condensed";
   font-weight: 500;
   letter-spacing: 0.12em;
   line-height: 1.1;
@@ -80,13 +78,10 @@ header .inner{
 .headerNav button {
   all: unset;
   cursor: pointer;
-
   position: relative;
   padding-left: 12px;
-
   opacity: 0.35;
   transition: opacity 0.25s ease, transform 0.25s ease;
-
   color: currentColor;
 }
 
@@ -118,10 +113,10 @@ header .inner{
 .date {
   justify-self: end;
 
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.12em;
   line-height: 1;
-
+  font-family: "Barlow Condensed";
   opacity: 0.9;
 }

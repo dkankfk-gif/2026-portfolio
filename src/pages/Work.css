@@ -444,7 +444,14 @@
     right: 0;
   }
 }
-
+@media (max-width: 600px){
+  .workDesc{
+    font-size: 12px;
+  }
+  .workDesc br{
+    display: none;
+  }
+}
 
 @media (max-width: 520px){
 
@@ -458,4 +465,8 @@
     max-width: none;
   }
 
+}
+
+.workCtaWrap{
+  margin: 0 auto;
 }

@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef, useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import "./About.css";
+import HoverPreview from "../components/HoverPreview";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -288,17 +289,26 @@ export default function About() {
                 협업할 때는 책임감을 갖고 맡은 역할을 끝까지 해내는 편입니다.
               </p>
 
-              <button
-                type="button"
-                className="aboutLabel aboutLabelBtn"
-                aria-label="About"
-                onMouseEnter={() => aboutScramble.start({ duration: 1400, speed: 28 })}
-                onMouseLeave={aboutScramble.stop}
-                onFocus={() => aboutScramble.start({ duration: 1400, speed: 28 })}
-                onBlur={aboutScramble.stop}
+              {/* hover preview */}
+              <HoverPreview
+                imgSrc="/img/soon.avif"
+                width={120}
+                offsetX={10}
+                offsetY={-20}
+                className="aboutHoverPreview"
               >
-                <span ref={aboutScramble.elRef}>About</span>
-              </button>
+                <button
+                  type="button"
+                  className="aboutLabel aboutLabelBtn"
+                  aria-label="About"
+                  onMouseEnter={() => aboutScramble.start({ duration: 1400, speed: 28 })}
+                  onMouseLeave={aboutScramble.stop}
+                  onFocus={() => aboutScramble.start({ duration: 1400, speed: 28 })}
+                  onBlur={aboutScramble.stop}
+                >
+                  <span ref={aboutScramble.elRef}>About</span>
+                </button>
+              </HoverPreview>
             </div>
           </div>
 

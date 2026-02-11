@@ -1,0 +1,34 @@
+.hpWrap{
+  position: relative;
+  width: fit-content;
+}
+
+.hpPreview{
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+
+  opacity: 0;
+
+  transition: opacity 180ms ease, filter 260ms ease;
+
+  z-index: 60;
+}
+
+.hpPreview.is-show{
+  opacity: 1;
+  filter: blur(0);
+}
+
+.hpBox{
+width: 100%;
+  overflow: hidden;
+}
+
+.hpImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
