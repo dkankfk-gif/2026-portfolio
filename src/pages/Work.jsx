@@ -4,6 +4,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import "./Work.css";
 import HoverPreview from "../components/HoverPreview";
 
+
 gsap.registerPlugin(ScrollTrigger);
 
 const WORK_ITEMS = [
