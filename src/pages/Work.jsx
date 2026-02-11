@@ -58,8 +58,8 @@ const WORK_ITEMS = [
     rightImg: "/img/work-10.png",
     leftTag: "Clone Coding",
     rightTag: "Clone Coding",
-    hrefLeft: "",
-    hrefRight: "",
+    hrefLeft: "https://cruelmode.vercel.app/",
+    hrefRight: "https://daebang-zeta.vercel.app/",
   },
   {
     id: "6",
@@ -69,21 +69,21 @@ const WORK_ITEMS = [
     rightImg: "/img/work-12.png",
     leftTag: "Clone Coding",
     rightTag: "Clone Coding",
-    hrefLeft: "",
+    hrefLeft: "https://poen.vercel.app/",
     hrefRight: "",
   },
     {
     id: "7",
     leftTitle: "배너디자인",
     rightTitle: "노르딕네스트 리디자인",
-    leftImg: "/img/work-dugout.png",
-    rightImg: "/img/work-dugout.png",
+    leftImg: "/img/work-13.png",
+    rightImg: "/img/work-14.png",
     leftTag: "banner design",
     rightTag: "website redesign",
-    hrefLeft: "",
+    hrefLeft: "https://www.figma.com/proto/xC3DM0BJDfSIFV0D4CUrFu/%ED%88%AC%EC%8D%B8-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%B0%B0%EB%84%88-%ED%8E%98%EC%9D%B4%EC%A7%80?page-id=2002%3A2&node-id=2002-3&viewport=534%2C512%2C0.09&t=R5vdHvG3WJTKfdXh-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2002%3A3",
     hrefRight: "https://www.figma.com/proto/ktldKVg7P9bFVjBiLjT3SV/%EB%85%B8%EB%A5%B4%EB%94%95%EB%84%A4%EC%8A%A4%ED%8A%B8-%EB%A6%AC%EB%94%94%EC%9E%90%EC%9D%B8?page-id=0%3A1&node-id=2001-347&p=f&viewport=469%2C-273%2C0.07&t=vrjev5bqZxD48J9l-1&scaling=min-zoom&content-scaling=fixed",
   },
-    {
+/*     {
     id: "8",
     leftTitle: "투썸 배너디자인 ",
     rightTitle: "바다 사랑 공모전",
@@ -93,7 +93,7 @@ const WORK_ITEMS = [
     rightTag: "PROJECT VIDEO",
     hrefLeft: "",
     hrefRight: "",
-  },
+  }, */
 ];
 
 // ✅ ADD: 모바일용 프로젝트 리스트(위/아래 카드로 사용)
@@ -122,7 +122,7 @@ const PROCESS_ITEMS = [
     descTitle: "생각을 정리하고,\n하나씩 만들어 갑니다.",
     desc:
       "아이디어 구상부터 시작해 레퍼런스, 디자인, 구현까지의 과정을\n정리했습니다. 만들면서 확인하고, 다시 설계하며 완성도를 올립니다.",
-    img: "/img/process-ideation.jpg",
+    img: "/img/ideation.jpg",
   },
   {
     id: "research",
@@ -131,7 +131,7 @@ const PROCESS_ITEMS = [
     descTitle: "기준을 찾고,\n방향을 좁힙니다.",
     desc:
       "레퍼런스와 패턴을 수집하고, 좋은 흐름/나쁜 흐름을 분리해\n설계 기준을 잡습니다.",
-    img: "/img/process-research.jpg",
+    img: "/img/research.gif",
   },
   {
     id: "wireframe",
@@ -140,7 +140,7 @@ const PROCESS_ITEMS = [
     descTitle: "먼저 구조를 만들고,\n흐름을 확인합니다.",
     desc:
       "정보 구조와 동선을 먼저 만들고, 사용자가 막히는 지점을\n최소화하도록 화면을 다듬습니다.",
-    img: "/img/process-wireframe.gif",
+    img: "/img/wireframe.gif",
   },
   {
     id: "design",
@@ -149,7 +149,7 @@ const PROCESS_ITEMS = [
     descTitle: "톤을 맞추고,\n디테일로 설득합니다.",
     desc:
       "타이포/그리드/간격 규칙을 정리하고, UI 디테일과 마이크로\n인터랙션으로 완성도를 끌어올립니다.",
-    img: "/img/process-design.jpg",
+    img: "/img/design.gif",
   },
   {
     id: "development",
@@ -158,7 +158,7 @@ const PROCESS_ITEMS = [
     descTitle: "코드로 옮기며\n끝까지 구현합니다.",
     desc:
       "React 기반으로 컴포넌트를 구성하고, GSAP/ScrollTrigger로\n스크롤 경험을 구현하며 반복적으로 개선합니다.",
-    img: "/img/process-development.jpg",
+    img: "/img/development.gif",
   },
 ];
 

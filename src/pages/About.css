@@ -4,7 +4,7 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
-  background: #06110b;
+  background: rgba(2, 4, 10, 1);
 }
 
 .aboutInner {
@@ -118,7 +118,7 @@
 /* ===== Skills Section ===== */
 .skillsSection{
   position: relative;
-  background: #06110b;
+  background: rgba(2, 4, 10, 1);
   min-height: 100vh;
   padding: 140px 0 160px;
   overflow: hidden;

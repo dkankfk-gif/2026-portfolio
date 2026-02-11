@@ -34,7 +34,7 @@ body::-webkit-scrollbar {
 }
 
 body {
-  background: #040F09;
+  background: rgba(2, 4, 10, 1);
   -ms-overflow-style: none; /* IE */
 }
 body::before{

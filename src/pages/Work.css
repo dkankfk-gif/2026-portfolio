@@ -1,6 +1,6 @@
 .workSection{
   position: relative;
-  background: #06110b;
+  background: rgba(2, 4, 10, 1);
   overflow: hidden;
   margin-bottom: clamp(
     80px,
@@ -232,7 +232,7 @@
 
 .processSection{
   position: relative;
-  background: #06110b;
+  background: rgba(2, 4, 10, 1);
   padding-block: clamp(
     40px,
     calc(
