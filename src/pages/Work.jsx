@@ -48,8 +48,8 @@ const WORK_ITEMS = [
     rightImg: "/img/work-8.png",
     leftTag: "Clone Coding",
     rightTag: "Clone Coding",
-    hrefLeft: "",
-    hrefRight: "",
+    hrefLeft: "https://y-studio-five.vercel.app/",
+    hrefRight: "https://dongda-khaki.vercel.app/",
   },
   {
     id: "5",
@@ -71,7 +71,7 @@ const WORK_ITEMS = [
     leftTag: "Clone Coding",
     rightTag: "Clone Coding",
     hrefLeft: "https://poen.vercel.app/",
-    hrefRight: "",
+    hrefRight: "https://muzain-topaz.vercel.app/",
   },
     {
     id: "7",
