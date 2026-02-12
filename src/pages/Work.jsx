@@ -160,7 +160,7 @@ const PROCESS_ITEMS = [
     descTitle: "코드로 옮기며\n끝까지 구현합니다.",
     desc:
       "React 기반으로 컴포넌트를 구성하고, GSAP/ScrollTrigger로\n스크롤 경험을 구현하며 반복적으로 개선합니다.",
-    img: "/img/developmen.gif",
+    img: "/img/development.gif",
   },
 ];
 
