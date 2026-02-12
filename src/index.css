@@ -82,7 +82,4 @@ body::before{
   pointer-events: none;
   z-index: 99999;
   mix-blend-mode: difference;
-
-  /* ❌ 이거 제거 */
-  /* transform: translate(-50%, -50%); */
 }

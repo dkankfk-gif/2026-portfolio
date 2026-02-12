@@ -55,7 +55,7 @@
   padding: 0;
   margin-top: 42px;
 
-  cursor: pointer;
+  cursor: no-drop;
   color: rgba(255,255,255,0.95);
   font-size: 14px;
   font-weight: 600;
